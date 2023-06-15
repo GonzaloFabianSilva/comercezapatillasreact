@@ -7,7 +7,7 @@ import { db } from "../../services/firebase/firebaseConfig"
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null)
-    const [setLoading] = useState(true)
+    const [loading,setLoading] = useState(true)
 
     const { itemId } = useParams()
 
@@ -32,10 +32,12 @@ const ItemDetailContainer = () => {
     }, [itemId])
 
     return (
+        loading ? 
+        <h2>cargando</h2>
+        :
         <div className="ItemDetailContainer">
-            <ItemDetail {...product} />
+        <ItemDetail {...product} />
         </div>
-    )
-}
-
+        )
+        }
 export default ItemDetailContainer
